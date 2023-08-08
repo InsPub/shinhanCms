@@ -1,0 +1,89 @@
+@charset "utf-8";
+/*color*/
+:root {
+    --bg_dim:rgba(0,0,0,0.5);
+}
+
+
+/*layout*/
+#wrap {position:relative;width:100%;height:100%;font-size:1.6rem;}
+#header {position:fixed;display:flex;width:100%;height:5rem;align-items:center;justify-content:space-between;padding:0 20px;background-color:#fff;}
+#container {padding:5rem 2rem;}
+#footerWrap {}
+
+/*asideMenu*/
+.asideMenuWrap {position:fixed;top:0;left:100%;width:100%;height:100%;background-color:#fff;transition:all 0.3s ease-in-out;}
+.asideMenuWrap.active {left:0;}
+.menuInner {width:100%;height:100%;}
+
+/*header*/
+#header .subMenuWrap {flex:1;}
+#header .rightBox {flex-shrink:0;}
+
+/*popUP*/
+.popWrap {display:flex;flex-direction:column;position:fixed;top:0;left:0;width:100%;height:100%;justify-content:center;align-items:center;transition:all 0.3s ease-in-out;opacity:0;z-index:-1;}
+.popWrap.active {opacity:1;z-index:10;}
+.popFull {width:100%;height:100%;background-color:#fff;}
+.popBottom {justify-content:flex-end;flex-direction:column;}
+.popConfirm {width:100%;padding:0 20px;}
+.popWrap .popInner {position:relative;display:flex;flex-direction:column;width:100%;background-color:#fff;} 
+.popWrap .popHeader {display:flex;height:5rem;padding:0 1.5rem;align-items:center;}
+
+.popBottom .popInner {position:fixed;max-height:60%;padding-top:3.5rem;bottom:-50%;transition:bottom 0.3s ease-in-out;}
+.popBottom.active .popInner {bottom:0;}
+.btn_popBottomClose {position:absolute;top:5px;left:50%;transform:translateX(-50%);}
+
+.popConfirm .popInner {border-radius:8px;justify-content:center;}
+
+.mod {position:fixed;top:-1px;left:-1px;width:1px;height:1px;}
+
+/*subHeader*/
+.subMenu {top:5rem}
+.subMenuInner {position:absolute;top:0;display:flex;width:100%;flex-direction:column;background-color:#fff;}
+
+.select_menuList {display:none;}
+.dropdown-select {display:flex;font-size:1.8rem;align-items:center;justify-content:space-between;}
+.dropdown-select:after {content:'';}
+.active .dropdown-select:before {transform: rotate(180deg);}
+.dropdown-container {display:none;position:fixed;left:0;top:5rem;width:100%;height:100%;}
+.dropdown-container.active {display: block;}
+.dropdown-select-ul {width:100%;max-height:50rem;overflow-y:auto;}
+.dropdown-select-ul li {padding: 0.7rem 1.4rem;}
+
+.active .dropdown-select-ul {display: block;background-color:#fff;}
+.dropdown-select-ul li.selected {color: #2a3fec;}
+
+.subMenuWrap .dropdown-container .dim {top:5rem;}
+
+.dim {position:fixed;left:0;top:0;width:100%;height:100%;background-color:var(--bg_dim);z-index:-1;opacity:0;visibility:hidden;transition:all 0.5s ease-in-out;}
+.active .dim {opacity:1;visibility:visible;}
+
+
+/*scrolltab*/
+.tabMenu {width:100%;overflow-x:auto;height:50px;}
+.tabMenu ul {display:flex;white-space:nowrap;}
+.tabMenu ul li {padding:0 20px;}
+.tabMenu ul li.active a {color:#2a3fec}
+
+.tabcontents {display:none;}
+
+/*selectbox*/
+.selectWrap {display:flex;flex-direction:column;}
+.select_option_wrap,
+.selectBox {display:none}
+.popBottom .dropdown-container {top:auto;bottom:0;height:auto;}
+
+/*swiper*/
+.swiperInner {display:flex;}
+.swiperInner .swiper-slide {display:flex;flex-direction:column;width:100%;padding:30px 20px;}
+
+.cardSwiperWrap {display:flex;flex-direction:column;background-color:rgba(238, 238, 238, 0.50);border-radius:16px;border:1px #fff solid;box-shadow: 5px 10px 15px 0px rgba(149, 115, 130, 0.20);backdrop-filter: blur(10px);}
+
+
+
+  
+
+
+
+
+
