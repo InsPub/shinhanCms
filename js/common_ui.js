@@ -80,6 +80,7 @@ $(window).on('load', function(){
 		menuSelectli = $('.subMenuWrap .dropdown-select-ul li');
 
 	menuSelectdd.on('click',function(){
+		$(this).toggleClass('active');
 		$(this).next('.dropdown-container').toggleClass('active');
 	});
 

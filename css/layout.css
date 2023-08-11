@@ -11,10 +11,16 @@
     --color_fall:#2D78FA;
 }
 
+/* skipNav */
+.skipNav a {display:block;position:absolute;top:-50px;z-index:9999;font-size:18px;background-color:#fff;}
+.skipNav a:focus,
+.skipNav a:active {top:0;}
+
 /*layout*/
+body {height:100%}
 #wrap {position:relative;display:flex;flex-direction:column;width:100%;height:100%;font-size:1.6rem;flex-direction:column;}
-#header {position:fixed;display:flex;width:100%;height:5.2rem;align-items:center;justify-content:space-between;padding:0 20px;background-color:#fff;z-index:2;}
-#container {display:flex;flex-direction:column;height:100%;padding:0;}
+#header {position:fixed;display:flex;width:100%;height:5.2rem;align-items:center;justify-content:space-between;padding:0 0.5rem 0 2rem;background-color:#fff;z-index:2;}
+#container {display:flex;flex-direction:column;height:100%;padding:0;flex:1;}
 #header ~ #container {padding:5rem 0 0;}  
 #footerWrap {display:flex;flex-direction:column;align-items:center;}
 
@@ -25,7 +31,10 @@
 
 /*header*/
 #header .subMenuWrap {flex:1;}
-#header .rightBox {flex-shrink:0;}
+#header .rightBox {display:flex;flex-shrink:0;}
+#header .rightBox button {padding:2rem;background-size:2.4rem 2.4rem;background-position:50%;background-repeat:no-repeat;}
+.btn_iconMenu {background-image:url(../images/common/icon_menu.svg)}
+.btn_share {background-image:url(../images/common/icon_share.svg)}
 
 /*subHeader*/
 .subMenu {top:5rem}
@@ -113,9 +122,9 @@
 select {display:none}
 
 /*selectType : 공통 */
-.dropdown-select {display:flex;font-size:1.8rem;align-items:center;justify-content:space-between;}
-.dropdown-select:after {content:'';}
-.active .dropdown-select:before {transform: rotate(180deg);}
+.dropdown-select {display:flex;font-size:2rem;align-items:center;}
+.dropdown-select:after {content:'';width:2.4rem;height:2.4rem;background:url(../images/common/icon_menuArrow.svg) no-repeat 50% 50%;background-size:100%;margin-left:0.8rem;transition:transform 0.3s ease-in-out;}
+.dropdown-select.active:after {transform: rotate(-180deg);}
 .dropdown-container {display:none;position:fixed;left:0;top:5rem;width:100%;height:100%;}
 .dropdown-container.active {display:block;}
 .dropdown-select-ul {width:100%;max-height:50rem;background-color:#fff;overflow-y:auto;}
@@ -156,7 +165,7 @@ select {display:none}
 
 /*subTab*/
 .subTabMenu {top:10.9rem;padding-top:0;border-bottom:none;transition:all 0.3s ease-in-out;}
-.subTabMenu.active {box-shadow: 0px 0 5px 0px rgba(0, 0, 0, 0.12);}
+.subTabMenu.active {box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10);}
 .subTabMenu .tabMenuList {padding:1.2rem 0 1.2rem 1.8rem;}
 .subTabMenu .tabMenuList li {height:3.2rem;margin-left:8px;padding:0;}
 .subTabMenu .tabMenuList li:first-child {margin-left:0;}
