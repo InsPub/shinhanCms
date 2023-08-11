@@ -14,28 +14,43 @@ $(document).ready(function(){
   });
 
   //scrollTab
-  $('.tabcontents:first-child').show();
+  $('.tabcontents:first-child, .subTabcontents:first-child').show();
 
-  $('.tabMenu ul li a').on('click', function(){
+  $('.tabMenuList li a').on('click', function(){
 	var menuSelect = $(this);
 		
-
-	$('.tabMenu ul li').removeClass('active');
-	menuSelect.parent().addClass('active');
+	menuSelect.closest('li').siblings().removeClass('active');
+	menuSelect.closest('li').addClass('active');
 	menuSelect.closest('li').parents('.tabMenu').next().children().eq($(this).closest('li').index()).show().siblings().hide();
-	var left = $('.tabMenu ul li.active').offset().left,
+	var left = $('.tabMenuList li.active').offset().left,
 		curLeft = $('.tabMenu').scrollLeft();
 
 	$('.tabMenu').animate({scrollLeft : curLeft+left}, 400);
   });
-  
-  
-  
+
+  $('.subTabMenu .tabMenuList li a').on('click', function(){
+	var menuSelect = $(this);
+		
+	menuSelect.closest('li').siblings().removeClass('active');
+	menuSelect.closest('li').addClass('active');
+	menuSelect.closest('li').parents('.subTabMenu').next().children().eq($(this).closest('li').index()).show().siblings().hide();
+	var left = $('.subTabMenu .tabMenuList li.active').offset().left - 18,
+		curLeft = $('.subTabMenu').scrollLeft();
+
+	$('.subTabMenu').animate({scrollLeft : curLeft+left}, 400);
+  });
+
+
+  //page contents scroll
+  $('.scroll .contDetail').each(function(){
+	var height = $('.scroll').height() - $('.contHeader').height() - 20;
+	$(this).css('height', height);
+  });
 });
 
 $(window).on('load', function(){
 	//subMenu
-    var customSelect = $('select.select_menuList');
+    var customSelect = $('.select_menuList');
 	customSelect.each(function() {
 		var that = $(this);
 		var listID = that.attr('id'),
@@ -61,10 +76,10 @@ $(window).on('load', function(){
 		
 	});
 	
-	var	selectdd = $('.dropdown-select'),
-		selectli = $('.dropdown-select-ul li');
+	var	menuSelectdd = $('.subMenuWrap .dropdown-select'),
+		menuSelectli = $('.subMenuWrap .dropdown-select-ul li');
 
-	selectdd.on('click',function(){
+	menuSelectdd.on('click',function(){
 		$(this).next('.dropdown-container').toggleClass('active');
 	});
 
@@ -72,7 +87,7 @@ $(window).on('load', function(){
 		$(this).parents('.dropdown-container').removeClass('active');
 	});
 
-	selectli.on('click',function(){
+	menuSelectli.on('click',function(){
 		var that = $(this);
 		var	parentUl = that.parent('ul'),
             thisdd = parentUl.parents('.dropdown-container').prev('.dropdown-select'),
@@ -109,10 +124,8 @@ $(window).on('load', function(){
 				}
 			});
 		popSelect = '<div class="dropdown-select entypo-down-open-big"><span>' + startingOption + '</span></div><div class="popWrap popBottom"><div class="dropdown-container"><div class="dropSelectWrap"><ul class="dropdown-select-ul" data-role="' + listID +'">' + theOptions + '</ul><div class="dim"></div></div></div></div>';
-		$(popSelect).insertAfter(that);
-		
+		$(popSelect).insertAfter(that);	
 	});
-	
 	var	selectdd = $('.dropdown-select'),
 		selectli = $('.dropdown-select-ul li');
 
@@ -140,7 +153,63 @@ $(window).on('load', function(){
         that.addClass('selected');
         $(originalSelect).val(livalue);
         thisdd.children('span').html(lihtml);
+	});	
+
+	//select : listType 
+	var listSelect = $('.selectBox_list');
+	listSelect.each(function() {
+		var that = $(this);
+		var listID = that.attr('id'),
+			theOptions = "",
+			startingOption = "",
+			listSelect = "";
+
+            that.children('option').each(function() {
+				var curOpt = $(this);
+				var curVal = curOpt.attr('value'),
+					curHtml = curOpt.html(),
+					isSelected = curOpt.attr('selected');
+				if(isSelected === 'selected') {
+					startingOption = curHtml;
+					theOptions += '<li class="selected" data-value="' + curVal + '">' + curHtml + '</li>';
+				}else {
+					theOptions += '<li data-value="' + curVal + '">' + curHtml + '</li>';
+				}
+			});
+		listSelect = '<div class="dropdown-select entypo-down-open-big"><span>' + startingOption + '</span></div><div class="dropdown-container"><div class="dropSelectWrap"><ul class="dropdown-select-ul" data-role="' + listID +'">' + theOptions + '</ul></div></div>';
+		$(listSelect).insertAfter(that);	
 	});
+	
+	var	listSelectdd = $('.selectListWrap .dropdown-select'),
+		listSelectli = $('.selectListWrap .dropdown-select-ul li');
+
+	listSelectdd.on('click',function(){
+		$(this).next('.dropdown-container').toggleClass('active');
+	});
+
+	listSelectli.on('click',function(){
+		var that = $(this);
+		var	parentUl = that.parent('ul'),
+            thisdd = parentUl.parent('.dropSelectWrap').closest('.dropdown-container').prev('.dropdown-select'),
+            lihtml = that.html(),
+            livalue = that.attr('data-value'),
+            originalSelect = '#' + parentUl.attr('data-role');
+
+        parentUl.parent('.dropSelectWrap').closest('.dropdown-container').toggleClass('active');
+        that.siblings('li').removeClass('selected');
+        that.addClass('selected');
+        $(originalSelect).val(livalue);
+        thisdd.children('span').html(lihtml);
+	});
+});
+
+$(window).scroll(function() {
+	if($(document).scrollTop() > $('#header').height() + $('.tabMenu').height()) {
+		var tabHeight = $('#header').height() + $('.tabMenu').height();
+		$('.subTabMenu').addClass('active');
+   	} else {
+		$('.subTabMenu').removeClass('active');
+	}
 });
 
 

@@ -83,114 +83,42 @@
 
         <!--container-->
         <div id="container">
-            <div class="tabWrap">
-                <div class="tabMenu">
-                    <ul class="tabMenuList">
-                      <li class="active"><a rel="tab1" role="tablist">지수</a></li>
-                      <li><a rel="tab2" role="tablist">환율</a></li>
-                      <li><a>금리</a></li>
-                      <li><a>원자재</a></li>
-                      <li><a>메뉴5</a></li>
-                      <li><a>메뉴6</a></li>
-                      <li><a>메뉴7</a></li>
-                      <li><a>메뉴8</a></li>
-                      <li><a>메뉴9</a></li>
-                    </ul>
-                </div>
-                <div class="tabContainer">
-                    <div class="tabcontents" id="tab1">
-                        tab1
-                    </div>
-                    <div class="tabcontents">
-                        tab2
-                    </div>
-                    <div class="tabcontents">
-                        tab3
-                    </div>
-                    <div class="tabcontents">
-                        tab4
-                    </div>
-                    <div class="tabcontents">
-                        tab5
-                    </div>
-                    <div class="tabcontents">
-                        tab6
-                    </div>
-                    <div class="tabcontents">
-                        tab7
-                    </div>
-                    <div class="tabcontents">
-                        tab8
-                    </div>
-                    <div class="tabcontents">
-                        tab9
-                    </div>
-                </div>
-            </div>
-            
-            <div class="selectWrap">
-                <select name="select1" class="selectBox" tabindex="-1" id="select1">
-                    <option value="menu1" selected>123-4567-89</option>
-                    <option value="menu2">4568-89-874523</option>
-                </select>
-            </div>
 
             <button type="button" onclick="fnShowPop('pop_bottom')" title="bottomSheetType" style="height: 50px;"><span>popUpType - bottomSheet</span></button><br>
             <button type="button" onclick="fnShowPop('pop_search')" title="bottomSheetType" style="height: 50px;"><span>popUpType - Full</span></button><br>
             <button type="button" onclick="fnShowPop('pop_confirm')" title="bottomSheetType" style="height: 50px;"><span>popUpType - Confirm/Alert</span></button>
 
-            <!-- Slider main container -->
-            <div class="cardSwiperWrap swiper">
-                <div class="swiper-wrapper swiperInner">
-                    <div class="swiper-slide cardList">
-                        <dl>
-                            <dt class="title">미국주식,<br>낮에도 밤에도 거래 가능!</dt>
-                            <dd class="tag">
-                                <span>#온라인매매수수료0%</span>
-                                <span>#지원금즉시제공5만원</span>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="swiper-slide">
-                        <dl>
-                            <dt class="title">미국주식,<br>낮에도 밤에도 거래 가능!2</dt>
-                            <dd class="tag">
-                                <span>#온라인매매수수료0%</span>
-                                <span>#지원금즉시제공5만원</span>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="swiper-slide">
-                        <dl>
-                            <dt class="title">미국주식,<br>낮에도 밤에도 거래 가능!3</dt>
-                            <dd class="tag">
-                                <span>#온라인매매수수료0%</span>
-                                <span>#지원금즉시제공5만원</span>
-                            </dd>
-                        </dl>
-                    </div>
-                </div> 
-                <div class="swiper-pagination"></div>
-            </div>
-            <script>
-                const cardSwiper = new Swiper('.cardSwiperWrap', {
-                  // Optional parameters
-                  direction: 'horizontal',
-                  loop: true,
-            
-                  // If we need pagination
-                  pagination: {
-                    el: '.swiper-pagination',
-                  }
-                });
-            
-            </script>
         </div>
         <!--//container-->
+
+        <!--footer-->
         <footer id="footerWrap">
-            
+            <div>
+                <a href="#" title=""><span>회사소개</span></a>
+                <a href="#" title=""><span>지점안내</span></a>
+                <a href="#" title=""><span>소비자보호포털</span></a>
+            </div>
+            <div class="copyrightWrap">
+                <div class="">
+                    <a href="#" title=""><strong>개인정보처리방침</strong></a>
+                    <a href="#" title=""><span>신용정보활용체제</span></a>
+                </div>
+                <div class="snsBox">
+                    <a href="#" class="icon_youtube" title=""><span class="blind">유투브바로가기</span></a>
+                    <a href="#" class="icon_blog" title=""><span class="blind">네이버블로그바로가기</span></a>
+                    <a href="#" class="icon_kakakotalk" title=""><span class="blind">카카오톡바로가기</span></a>
+                    <a href="#" class="icon_facebook" title=""><span class="blind">페이스북바로가기</span></a>
+                    <a href="#" class="icon_instagram" title=""><span class="blind">인스타그램바로가기</span></a>
+                </div>
+                <div class="btnWrap">
+                    <a href="tel:" class="btn btnCustom"><span>고객지원센터 연결하기</span></a>
+                </div>
+                <span class="copyright">©2023 SHINHAN SECURITIES CO.,LTD.</span>
+            </div>
         </footer>
+        <!--//footer-->
     </div>
+    
     <!--[Full 팝업] : 검색 및 Full-->
     <div class="popWrap popFull" id="pop_search">
         <div class="popInner">
